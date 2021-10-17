@@ -2,6 +2,7 @@ import Oneflag from "./OneFlag";
 import { useState } from "react";
 import shuffleArray, { continentCodes, countryCntCodes } from "../utils";
 import { allCountryCodes } from "../utils";
+import { CheckboxGroup } from "@chakra-ui/checkbox";
 
 function GuessFlagPage(props) {
   const pre_dict_countryCnt = new Map(countryCntCodes);
@@ -36,6 +37,15 @@ function GuessFlagPage(props) {
 
   const [sample, setSample] = useState(makeSample(codes[r], codes));
 
+  const pb = localStorage.getItem("GF-"+props.gameMode)
+
+  function checkPB() {
+    if(streak > pb){
+      localStorage.setItem("GF-"+props.gameMode, streak - 1)
+    }
+    
+  }
+
   function nextIteration(flag) {
     if (streak < l) {
       setVisited((prev) => [...prev, flag]);
@@ -46,6 +56,7 @@ function GuessFlagPage(props) {
       setcurrentFlag(realCurrent);
       setSample(makeSample(realCurrent, codes));
     } else {
+      checkPB()
       alert("You Win");
       newGame();
     }
@@ -68,6 +79,7 @@ function GuessFlagPage(props) {
       setStreak((prev) => prev + 1);
       nextIteration(event.target.name);
     } else {
+      checkPB()
       alert("You lose!");
       newGame();
     }

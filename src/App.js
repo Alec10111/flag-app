@@ -4,22 +4,23 @@ import GuessFlagPage from "./components/GuessFlagPage";
 import ScorePage from "./components/ScorePage";
 import GuessCountryPage from "./components/GuessCountryPage";
 import "./App.css";
-import modeButton from "./components/modeButton";
-import { Collapse } from "react-collapse";
 
 function App() {
   const [mode, setMode] = useState("WW");
   const [fmode, setFmode] = useState("GC");
 
-  const [open, setOpen] = useState(false);
+  const [btnCtrl, setBtnCtrl] = useState(-1);
+  const [btn2Ctrl, setBtn2Ctrl] = useState(-1);
 
   function handleMode(event) {
     //event.className = "btn btn-outline-info pressed";
+    setBtn2Ctrl(event.target.value);
     setMode(event.target.name);
     //setPressed(prev => !prev);
   }
 
   function handleFMode(event) {
+    setBtnCtrl(event.target.value);
     setFmode(event.target.name);
     //setPressed(prev => !prev);
   }
@@ -56,7 +57,12 @@ function App() {
                       onClick={handleFMode}
                       name="GF"
                       type="button"
-                      className="btn btn-outline-info"
+                      value={1}
+                      className={
+                        1 == btnCtrl
+                          ? "btn btn-outline-info pressed"
+                          : "btn btn-outline-info"
+                      }
                     >
                       Guess Flag
                     </button>
@@ -65,8 +71,13 @@ function App() {
                     <button
                       onClick={handleFMode}
                       name="GC"
+                      value={2}
                       type="button"
-                      className="btn btn-outline-info"
+                      className={
+                        2 == btnCtrl
+                          ? "btn btn-outline-info pressed"
+                          : "btn btn-outline-info"
+                      }
                     >
                       Guess Country
                     </button>
@@ -79,7 +90,12 @@ function App() {
                       onClick={handleMode}
                       name="WW"
                       type="button"
-                      className="btn btn-outline-info"
+                      value={1}
+                      className={
+                        1 == btn2Ctrl
+                          ? "btn btn-outline-info pressed"
+                          : "btn btn-outline-info"
+                      }
                     >
                       Worldwide
                     </button>
@@ -105,59 +121,89 @@ function App() {
                       </a>
                       <Collapse in={open}>
                         <div class="collapse" id="collapseExample"> */}
-                          <button
-                            onClick={handleMode}
-                            name="EU"
-                            type="button"
-                            className="btn btn-outline-info"
-                          >
-                            Europe
-                          </button>
-                          <button
-                            onClick={handleMode}
-                            name="AS"
-                            type="button"
-                            className="btn btn-outline-info"
-                          >
-                            Asia
-                          </button>
-                          <button
-                            onClick={handleMode}
-                            name="AF"
-                            type="button"
-                            className="btn btn-outline-info"
-                          >
-                            Africa
-                          </button>
-                          <button
-                            onClick={handleMode}
-                            name="OC"
-                            type="button"
-                            className="btn btn-outline-info"
-                          >
-                            Oceania
-                          </button>
-                          <button
-                            onClick={handleMode}
-                            name="NA"
-                            type="button"
-                            className="btn btn-outline-info"
-                          >
-                            North America
-                          </button>
-                          <button
-                            onClick={handleMode}
-                            name="SA"
-                            type="button"
-                            className="btn btn-outline-info"
-                          >
-                            South America
-                          </button>
-                        </div>
-                      {/* </Collapse> */}
+                      <button
+                        onClick={handleMode}
+                        name="EU"
+                        type="button"
+                        value={2}
+                        className={
+                          2 == btn2Ctrl
+                            ? "btn btn-outline-info pressed"
+                            : "btn btn-outline-info"
+                        }
+                      >
+                        Europe
+                      </button>
+                      <button
+                        onClick={handleMode}
+                        name="AS"
+                        type="button"
+                        value={3}
+                        className={
+                          3 == btn2Ctrl
+                            ? "btn btn-outline-info pressed"
+                            : "btn btn-outline-info"
+                        }
+                      >
+                        Asia
+                      </button>
+                      <button
+                        onClick={handleMode}
+                        name="AF"
+                        type="button"
+                        value={4}
+                        className={
+                          4 == btn2Ctrl
+                            ? "btn btn-outline-info pressed"
+                            : "btn btn-outline-info"
+                        }
+                      >
+                        Africa
+                      </button>
+                      <button
+                        onClick={handleMode}
+                        name="OC"
+                        type="button"
+                        value={5}
+                        className={
+                          5 == btn2Ctrl
+                            ? "btn btn-outline-info pressed"
+                            : "btn btn-outline-info"
+                        }
+                      >
+                        Oceania
+                      </button>
+                      <button
+                        onClick={handleMode}
+                        name="NA"
+                        type="button"
+                        value={6}
+                        className={
+                          6 == btn2Ctrl
+                            ? "btn btn-outline-info pressed"
+                            : "btn btn-outline-info"
+                        }
+                      >
+                        North America
+                      </button>
+                      <button
+                        onClick={handleMode}
+                        name="SA"
+                        type="button"
+                        value={7}
+                        className={
+                          7 == btn2Ctrl
+                            ? "btn btn-outline-info pressed"
+                            : "btn btn-outline-info"
+                        }
+                      >
+                        South America
+                      </button>
                     </div>
+                    {/* </Collapse> */}
                   </div>
                 </div>
+              </div>
               {/* </div> */}
             </Route>
             <Route path={"/play/GC/" + mode}>

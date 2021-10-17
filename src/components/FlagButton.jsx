@@ -4,7 +4,7 @@ function FlagButton(props){
     onClick={props.handled}
     name={props.name}
     type="button"
-    className="btn btn-outline-info"
+     className="btn btn-outline-info"
   >
     {props.country}
   </button>

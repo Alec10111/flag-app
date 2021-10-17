@@ -5,15 +5,27 @@ import shuffleArray, { continentCodes, countryCntCodes } from "../utils";
 import { allCountryCodes } from "../utils";
 
 function GuessCountryPage(props) {
+
+  const pb = localStorage.getItem("GC-"+props.gameMode) - 1;
+
+  function checkPB() {
+    if(streak > pb){
+      localStorage.setItem("GC-"+props.gameMode, streak);
+    }
+    
+  }
   const pre_dict_countryCnt = new Map(countryCntCodes);
 
   const dict_countryCnt = Object.fromEntries(pre_dict_countryCnt);
 
-  const filteredCountries = props.gameMode === "WW" ? allCountryCodes : allCountryCodes.filter(x => dict_countryCnt[x[0]] === props.gameMode) ;
-  
+  const filteredCountries =
+    props.gameMode === "WW"
+      ? allCountryCodes
+      : allCountryCodes.filter((x) => dict_countryCnt[x[0]] === props.gameMode);
+
   const entries = new Map(filteredCountries);
-  
-  const countryCodes = Object.fromEntries(entries);  
+
+  const countryCodes = Object.fromEntries(entries);
 
   function makeSample(flag, li) {
     return shuffleArray([
@@ -21,6 +33,7 @@ function GuessCountryPage(props) {
       flag,
     ]);
   }
+
 
   const codes = Object.keys(countryCodes);
 
@@ -47,6 +60,7 @@ function GuessCountryPage(props) {
       setcurrentFlag(realCurrent);
       setSample(makeSample(realCurrent, codes));
     } else {
+      checkPB();
       alert("You Win");
       newGame();
     }
@@ -69,6 +83,7 @@ function GuessCountryPage(props) {
       setStreak((prev) => prev + 1);
       nextIteration(event.target.name);
     } else {
+      checkPB();
       alert("You lose!");
       newGame();
     }
@@ -78,7 +93,9 @@ function GuessCountryPage(props) {
     <div className="container">
       <div className="col">
         <div className="row">
-          <h3>{continentCodes[props.gameMode]}: Round {streak}</h3>
+          <h3>
+            {continentCodes[props.gameMode]}: Round {streak}
+          </h3>
         </div>
         <div className="row">
           <Oneflag code={currentFlag} />

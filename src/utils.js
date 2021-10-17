@@ -537,6 +537,12 @@ export const continentCodes = {
   AF: "Africa",
   OC: "Oceania",
 };
+
+export const gameCodes ={
+  GF:"Guess Flag",
+  GC:"Guess Country"
+}
+
 function shuffleArray(array) {
   var clone = array;
   for (let i = clone.length - 1; i > 0; i--) {
