@@ -102,7 +102,7 @@ function App() {
                     <div className="col mt-3">
                       <Link
                         to={"/play/" + fmode + "/" + mode}
-                        className="btn btn-info"
+                        className="btn btn-outline-info"
                       >
                         Play
                       </Link>

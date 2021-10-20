@@ -1,24 +1,13 @@
 .pressed{
-    background-color:cyan;
+    background-color:#0dcaf081;
     color: black;
 }
-
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-
-  /* .btn {
+  .buto {
     display: inline-block;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #0dcaf0;
+
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
@@ -27,9 +16,9 @@
     -moz-user-select: none;
     user-select: none;
     background-color: transparent;
-    border: 1px solid transparent;
+    border: 1px solid #0dcaf0;
     padding: .375rem .75rem;
     font-size: 1rem;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-} */
+}

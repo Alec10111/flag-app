@@ -1,7 +1,7 @@
 export const allCountryCodes = [
   ["AF", "Afghanistan"],
   ["AL", "Albania"],
-  ["AQ", "Antarctica (the territory South of 60 deg S)"],
+  ["AQ", "Antarctica"],
   ["DZ", "Algeria"],
   ["AS", "American Samoa"],
   ["AD", "Andorra"],
@@ -171,7 +171,6 @@ export const allCountryCodes = [
   ["NO", "Norway"],
   ["MP", "Northern Mariana Islands"],
   ["UM", "United States Minor Outlying Islands"],
-  ["UM", "United States Minor Outlying Islands"],
   ["FM", "Micronesia"],
   ["MH", "Marshall Islands"],
   ["PW", "Palau"],
@@ -242,7 +241,8 @@ export const allCountryCodes = [
   ["UA", "Ukraine"],
   ["MK", "Macedonia"],
   ["EG", "Egypt"],
-  ["GB", "United Kingdom of Great Britain & Northern Ireland"],
+  ["GB", "United Kingdom"],
+  // ["GB", "United Kingdom of Great Britain & Northern Ireland"],
   ["GG", "Guernsey"],
   ["JE", "Jersey"],
   ["IM", "Isle of Man"],
@@ -258,7 +258,7 @@ export const allCountryCodes = [
   ["YE", "Yemen"],
   ["ZM", "Zambia"],
   ["XE", "Iraq-Saudi Arabia Neutral Zone"],
-  ["XD", "United Nations Neutral Zone"],
+  // ["XD", "United Nations Neutral Zone"],
   ["XS", "Spratly Islands"],
 ];
 
