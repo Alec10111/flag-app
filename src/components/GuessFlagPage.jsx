@@ -2,7 +2,6 @@ import Oneflag from "./OneFlag";
 import { useState } from "react";
 import shuffleArray, { continentCodes, countryCntCodes } from "../utils";
 import { allCountryCodes } from "../utils";
-import { CheckboxGroup } from "@chakra-ui/checkbox";
 
 function GuessFlagPage(props) {
   const pre_dict_countryCnt = new Map(countryCntCodes);

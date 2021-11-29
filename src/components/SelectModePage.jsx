@@ -1,14 +1,9 @@
-import React, { useState } from "react";
 import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
-import GuessFlagPage from "./components/GuessFlagPage";
-import ScorePage from "./components/ScorePage";
-import GuessCountryPage from "./components/GuessCountryPage";
-import "./App.css";
-import SelectModePage from "./components/SelectModePage";
+import React, { useState } from "react";
 
-// var modeContext = React.createContext(null);
 
-function App() {
+function SelectModePage(props) {
+//   var contextData = React.useContext(modeContext);
   const [mode, setMode] = useState("WW");
   const [fmode, setFmode] = useState("GC");
 
@@ -27,40 +22,14 @@ function App() {
     setFmode(event.target.name);
     //setPressed(prev => !prev);
   }
-
   return (
-    // <modeContext.Provider value={}>
-    <Router>
-      <div className="container">
-        <div className="row-md-2">
-          <h1>Flag Guesser</h1>
-          <hr />
-        </div>
-        <div className="row">
-          <div className="col-3">
-            <nav>
-              <ul className="list-group">
-                <li className="list-group-item">
-                  <Link to="/">Home</Link>
-                </li>
-                <li className="list-group-item">
-                  <Link to="/scores">ScoreBoard</Link>
-                </li>
-                <li className="list-group-item">Learn</li>
-              </ul>
-            </nav>
-          </div>
-          <Switch>
-            <Route exact path="/">
-              
-                {/* <SelectModePage /> */}
-                <div className="col">
+    <div className="col">
       <h2>Select mode</h2>
       <hr />
       <div className="row p-3">
         <div className="col">
           <button
-            onClick={handleFMode}
+            onClick={props.setF}
             name="GF"
             type="button"
             value={1}
@@ -75,7 +44,7 @@ function App() {
         </div>
         <div className="col">
           <button
-            onClick={handleFMode}
+            onClick={props.setF}
             name="GC"
             value={2}
             type="button"
@@ -93,7 +62,7 @@ function App() {
       <div className="row p-3">
         <div className="col">
           <button
-            onClick={handleMode}
+            onClick={props.setM}
             name="WW"
             type="button"
             value={1}
@@ -107,7 +76,7 @@ function App() {
           </button>
           <div className="col mt-3">
             <Link
-              to={"/play/" + fmode + "/" + mode}
+              to={"/play/" + props.fmode + "/" + props.mode}
               className="btn btn-outline-info"
             >
               Play
@@ -117,7 +86,7 @@ function App() {
         <div className="col">
           <div className="row">
             <button
-              onClick={handleMode}
+              onClick={props.setM}
               name="EU"
               type="button"
               value={2}
@@ -130,7 +99,7 @@ function App() {
               Europe
             </button>
             <button
-              onClick={handleMode}
+              onClick={props.setM}
               name="AS"
               type="button"
               value={3}
@@ -143,7 +112,7 @@ function App() {
               Asia
             </button>
             <button
-              onClick={handleMode}
+              onClick={props.setM}
               name="AF"
               type="button"
               value={4}
@@ -156,7 +125,7 @@ function App() {
               Africa
             </button>
             <button
-              onClick={handleMode}
+              onClick={props.setM}
               name="OC"
               type="button"
               value={5}
@@ -169,7 +138,7 @@ function App() {
               Oceania
             </button>
             <button
-              onClick={handleMode}
+              onClick={props.setM}
               name="NA"
               type="button"
               value={6}
@@ -182,7 +151,7 @@ function App() {
               North America
             </button>
             <button
-              onClick={handleMode}
+              onClick={props.setM}
               name="SA"
               type="button"
               value={7}
@@ -199,27 +168,10 @@ function App() {
         </div>
       </div>
     </div>
-              
-            </Route>
-            <Route path={"/play/GC/" + mode}>
-              <div className="col ml-3">
-                <GuessCountryPage gameMode={mode} round={1} />
-              </div>
-            </Route>
-            <Route path={"/play/GF/" + mode}>
-              <div className="col ml-3">
-                <GuessFlagPage gameMode={mode} round={1} />
-              </div>
-            </Route>
-            <Route path="/scores">
-              <ScorePage />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </Router>
-    // </modeContext.Provider>
   );
+  {
+    /* </div> */
+  }
 }
 
-export default App;
+export default SelectModePage;
