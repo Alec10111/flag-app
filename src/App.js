@@ -3,9 +3,9 @@ import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
 import GuessFlagPage from "./components/GuessFlagPage";
 import ScorePage from "./components/ScorePage";
 import GuessCountryPage from "./components/GuessCountryPage";
-import "./App.css";
+//import "./App.css";
 import SelectModePage from "./components/SelectModePage";
-
+import Learn from "./components/Learn";
 // var modeContext = React.createContext(null);
 
 function App() {
@@ -46,7 +46,9 @@ function App() {
                 <li className="list-group-item">
                   <Link to="/scores">ScoreBoard</Link>
                 </li>
-                <li className="list-group-item">Learn</li>
+                <li className="list-group-item">
+                  <Link to="/learn">Learn</Link>
+                  </li>
               </ul>
             </nav>
           </div>
@@ -55,7 +57,7 @@ function App() {
               
                 {/* <SelectModePage /> */}
                 <div className="col">
-      <h2>Select mode</h2>
+      <h2 className="text-3xl font-bold underline">Select mode</h2>
       <hr />
       <div className="row p-3">
         <div className="col">
@@ -65,7 +67,7 @@ function App() {
             type="button"
             value={1}
             className={
-              1 == btnCtrl
+              1 === btnCtrl
                 ? "btn btn-outline-info pressed"
                 : "btn btn-outline-info"
             }
@@ -213,6 +215,9 @@ function App() {
             </Route>
             <Route path="/scores">
               <ScorePage />
+            </Route>
+            <Route path="/learn">
+              <Learn />
             </Route>
           </Switch>
         </div>
