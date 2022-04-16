@@ -1,18 +1,16 @@
-import Oneflag from "./OneFlag";
+import Oneflag from "../components/OneFlag";
 import { useState } from "react";
-import FlagButton from "./FlagButton";
+import FlagButton from "../components/FlagButton";
 import shuffleArray, { continentCodes, countryCntCodes } from "../utils";
 import { allCountryCodes } from "../utils";
 
 function GuessCountryPage(props) {
-
-  const pb = localStorage.getItem("GC-"+props.gameMode) - 1;
+  const pb = localStorage.getItem("GC-" + props.gameMode) - 1;
 
   function checkPB() {
-    if(streak > pb){
-      localStorage.setItem("GC-"+props.gameMode, streak);
+    if (streak > pb) {
+      localStorage.setItem("GC-" + props.gameMode, streak);
     }
-    
   }
   const pre_dict_countryCnt = new Map(countryCntCodes);
 
@@ -33,7 +31,6 @@ function GuessCountryPage(props) {
       flag,
     ]);
   }
-
 
   const codes = Object.keys(countryCodes);
 

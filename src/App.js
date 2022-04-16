@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
-import GuessFlagPage from "./components/GuessFlagPage";
-import ScorePage from "./components/ScorePage";
-import GuessCountryPage from "./components/GuessCountryPage";
+import GuessFlagPage from "./pageComponents/GuessFlagPage";
+import ScorePage from "./pageComponents/ScorePage";
+import GuessCountryPage from "./pageComponents/GuessCountryPage";
 //import "./App.css";
-import SelectModePage from "./components/SelectModePage";
-import Learn from "./components/Learn";
+import SelectModePage from "./pageComponents/SelectModePage";
+import LearnPage from "./pageComponents/LearnPage";
 // var modeContext = React.createContext(null);
 
 function App() {
@@ -217,7 +217,7 @@ function App() {
               <ScorePage />
             </Route>
             <Route path="/learn">
-              <Learn />
+              <LearnPage />
             </Route>
           </Switch>
         </div>

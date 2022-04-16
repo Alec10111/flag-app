@@ -1,4 +1,4 @@
-import Oneflag from "./OneFlag";
+import Oneflag from "../components/OneFlag";
 import { useState } from "react";
 import shuffleArray, { continentCodes, countryCntCodes } from "../utils";
 import { allCountryCodes } from "../utils";
@@ -8,11 +8,14 @@ function GuessFlagPage(props) {
 
   const dict_countryCnt = Object.fromEntries(pre_dict_countryCnt);
 
-  const filteredCountries = props.gameMode === "WW" ? allCountryCodes : allCountryCodes.filter(x => dict_countryCnt[x[0]] === props.gameMode) ;
-  
+  const filteredCountries =
+    props.gameMode === "WW"
+      ? allCountryCodes
+      : allCountryCodes.filter((x) => dict_countryCnt[x[0]] === props.gameMode);
+
   const entries = new Map(filteredCountries);
-  
-  const countryCodes = Object.fromEntries(entries);  
+
+  const countryCodes = Object.fromEntries(entries);
 
   function makeSample(flag, li) {
     return shuffleArray([
@@ -36,13 +39,12 @@ function GuessFlagPage(props) {
 
   const [sample, setSample] = useState(makeSample(codes[r], codes));
 
-  const pb = localStorage.getItem("GF-"+props.gameMode)
+  const pb = localStorage.getItem("GF-" + props.gameMode);
 
   function checkPB() {
-    if(streak > pb){
-      localStorage.setItem("GF-"+props.gameMode, streak - 1)
+    if (streak > pb) {
+      localStorage.setItem("GF-" + props.gameMode, streak - 1);
     }
-    
   }
 
   function nextIteration(flag) {
@@ -55,7 +57,7 @@ function GuessFlagPage(props) {
       setcurrentFlag(realCurrent);
       setSample(makeSample(realCurrent, codes));
     } else {
-      checkPB()
+      checkPB();
       alert("You Win");
       newGame();
     }
@@ -78,7 +80,7 @@ function GuessFlagPage(props) {
       setStreak((prev) => prev + 1);
       nextIteration(event.target.name);
     } else {
-      checkPB()
+      checkPB();
       alert("You lose!");
       newGame();
     }
@@ -88,8 +90,10 @@ function GuessFlagPage(props) {
     <div className="container">
       <div className="col">
         <div className="row">
-          <h3>{continentCodes[props.gameMode]}: Round {streak}</h3>
-          <hr/>
+          <h3>
+            {continentCodes[props.gameMode]}: Round {streak}
+          </h3>
+          <hr />
         </div>
         <div className="row">
           <h4>{countryCodes[currentFlag]}</h4>
