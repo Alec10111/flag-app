@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
 import ScoreTable from "../components/ScoreTable";
 
@@ -6,12 +7,12 @@ function ScorePage(props) {
     <Router>
       <div className="col">
         <div className="row-md-3">
-          <Link to="/scores/GF" className="btn btn-outline-info">
-            Guess Flag
-          </Link>
-          <Link to="/scores/GC" className="btn btn-outline-info">
-            Guess Country
-          </Link>
+          <button>
+            <Link to="/scores/GF">Guess Flag</Link>
+          </button>
+          <button>
+            <Link to="/scores/GC">Guess Country</Link>
+          </button>
           <hr />
         </div>
         <Switch>

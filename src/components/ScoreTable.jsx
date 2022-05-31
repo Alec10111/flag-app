@@ -1,7 +1,6 @@
 import { gameCodes } from "../utils";
 
 function ScoreTable(props) {
-
   return (
     <div className="container">
       <h2>Best attempts: {gameCodes[props.mode]}</h2>
@@ -12,43 +11,43 @@ function ScoreTable(props) {
             <td>
               <strong>Worldwide:</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-WW")}/195</td>
+            <td>{localStorage.getItem(props.mode + "-WW") || 0} / 195</td>
           </tr>
           <tr>
             <td>
               <strong>Europe</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-EU")}/44</td>
+            <td>{localStorage.getItem(props.mode + "-EU") || 0} / 44</td>
           </tr>
           <tr>
             <td>
               <strong>Asia</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-AS")}/48</td>
+            <td>{localStorage.getItem(props.mode + "-AS") || 0} / 48</td>
           </tr>
           <tr>
             <td>
               <strong>North America</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-NA")}/35</td>
+            <td>{localStorage.getItem(props.mode + "-NA") || 0} / 35</td>
           </tr>
           <tr>
             <td>
               <strong>South America</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-SA")}/35</td>
+            <td>{localStorage.getItem(props.mode + "-SA") || 0} / 35</td>
           </tr>
           <tr>
             <td>
               <strong>Africa</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-AF")}/54</td>
+            <td>{localStorage.getItem(props.mode + "-AF") || 0} / 54</td>
           </tr>
           <tr>
             <td>
               <strong>Oceania</strong>
             </td>
-            <td>{localStorage.getItem(props.mode+"-OC")}/14</td>
+            <td>{localStorage.getItem(props.mode + "-OC") || 0} / 14</td>
           </tr>
         </tbody>
       </table>

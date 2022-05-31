@@ -1,9 +1,8 @@
-import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
-
 function SelectModePage(props) {
-//   var contextData = React.useContext(modeContext);
+  //   var contextData = React.useContext(modeContext);
   const [mode, setMode] = useState("WW");
   const [fmode, setFmode] = useState("GC");
 
@@ -34,7 +33,7 @@ function SelectModePage(props) {
             type="button"
             value={1}
             className={
-              1 == btnCtrl
+              1 === btnCtrl
                 ? "btn btn-outline-info pressed"
                 : "btn btn-outline-info"
             }
@@ -49,7 +48,7 @@ function SelectModePage(props) {
             value={2}
             type="button"
             className={
-              2 == btnCtrl
+              2 === btnCtrl
                 ? "btn btn-outline-info pressed"
                 : "btn btn-outline-info"
             }
@@ -67,7 +66,7 @@ function SelectModePage(props) {
             type="button"
             value={1}
             className={
-              1 == btn2Ctrl
+              1 === btn2Ctrl
                 ? "btn btn-outline-info pressed"
                 : "btn btn-outline-info"
             }
@@ -91,7 +90,7 @@ function SelectModePage(props) {
               type="button"
               value={2}
               className={
-                2 == btn2Ctrl
+                2 === btn2Ctrl
                   ? "btn btn-outline-info pressed"
                   : "btn btn-outline-info"
               }
@@ -104,7 +103,7 @@ function SelectModePage(props) {
               type="button"
               value={3}
               className={
-                3 == btn2Ctrl
+                3 === btn2Ctrl
                   ? "btn btn-outline-info pressed"
                   : "btn btn-outline-info"
               }
@@ -117,7 +116,7 @@ function SelectModePage(props) {
               type="button"
               value={4}
               className={
-                4 == btn2Ctrl
+                4 === btn2Ctrl
                   ? "btn btn-outline-info pressed"
                   : "btn btn-outline-info"
               }
@@ -130,7 +129,7 @@ function SelectModePage(props) {
               type="button"
               value={5}
               className={
-                5 == btn2Ctrl
+                5 === btn2Ctrl
                   ? "btn btn-outline-info pressed"
                   : "btn btn-outline-info"
               }
@@ -143,7 +142,7 @@ function SelectModePage(props) {
               type="button"
               value={6}
               className={
-                6 == btn2Ctrl
+                6 === btn2Ctrl
                   ? "btn btn-outline-info pressed"
                   : "btn btn-outline-info"
               }
@@ -156,7 +155,7 @@ function SelectModePage(props) {
               type="button"
               value={7}
               className={
-                7 == btn2Ctrl
+                7 === btn2Ctrl
                   ? "btn btn-outline-info pressed"
                   : "btn btn-outline-info"
               }
@@ -164,14 +163,10 @@ function SelectModePage(props) {
               South America
             </button>
           </div>
-          {/* </Collapse> */}
         </div>
       </div>
     </div>
   );
-  {
-    /* </div> */
-  }
 }
 
 export default SelectModePage;

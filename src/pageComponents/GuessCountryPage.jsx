@@ -98,7 +98,7 @@ function GuessCountryPage(props) {
           <Oneflag code={currentFlag} />
           {/* {countryCodes[currentFlag]} */}
         </div>
-        <div className="col">
+        <div className="col space-x-0">
           <FlagButton
             handled={handleClick}
             name={sample[0]}
@@ -121,8 +121,6 @@ function GuessCountryPage(props) {
           />
         </div>
       </div>
-      <div></div>
-      <div></div>
     </div>
   );
 }

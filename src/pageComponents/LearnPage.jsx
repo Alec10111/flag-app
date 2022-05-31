@@ -11,37 +11,50 @@ const blankCountry = {
 };
 
 const capitalize = (s) => {
-  if (typeof s !== 'string') return ''
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
-const fetcher = async(path) => {
+  if (typeof s !== "string") return "";
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+const fetcher = async (path) => {
   let response = await fetch(path);
-  return await response.json()
-}
+  return await response.json();
+};
 
-function CountryCard({data}) {
+function CountryCard({ data }) {
   return (
     <div className="customCard">
       <div className="cardTitle">
         <h1>{data["name"]["common"]}</h1>
         <img
-         src={data["flags"]["svg"]}
-         width="100"
-         height="50"
-         alt="South Africa"/>
+          src={data["flags"]["svg"]}
+          width="100"
+          height="50"
+          alt="South Africa"
+        />
       </div>
-      <hr className="ruler"/>
+      <hr className="ruler" />
       <div className="cardContent">
         <p>{data["description"]}</p>
       </div>
 
-      <hr className="ruler"/>
+      <hr className="ruler" />
       <div className="cardDetails">
         <ul>
-          <li><strong>Capital: </strong>{data["capital"][0]}</li>
-          <li><strong>Currency: </strong>{Object.keys(data["currencies"])}</li>
-          <li><strong>Population: </strong>{data["population"]}</li>
-          <li><strong>Languages: </strong>{Object.values(data["languages"])}</li>
+          <li>
+            <strong>Capital: </strong>
+            {data["capital"][0]}
+          </li>
+          <li>
+            <strong>Currency: </strong>
+            {Object.keys(data["currencies"])}
+          </li>
+          <li>
+            <strong>Population: </strong>
+            {data["population"]}
+          </li>
+          <li>
+            <strong>Languages: </strong>
+            {Object.values(data["languages"])}
+          </li>
         </ul>
       </div>
     </div>
@@ -62,9 +75,16 @@ function LearnPage() {
     //const res = await fetch(`locahost:3001/getCountryInfo/${currentSearchBar}`);
     try {
       console.log(currentSearchBar.toLowerCase());
-      let [descrp,res] = await Promise.all([fetcher(`http://localhost:3001/getCountryInfo/${capitalize(currentSearchBar)}`), fetcher(`https://restcountries.com/v3.1/name/${currentSearchBar.toLowerCase()}`)])
+      let [descrp, res] = await Promise.all([
+        fetcher(
+          `http://localhost:3001/getCountryInfo/${capitalize(currentSearchBar)}`
+        ),
+        fetcher(
+          `https://restcountries.com/v3.1/name/${currentSearchBar.toLowerCase()}`
+        ),
+      ]);
 
-      setCountryData({description: descrp,...res[0]});
+      setCountryData({ description: descrp, ...res[0] });
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -82,13 +102,12 @@ function LearnPage() {
             placeholder="Just spell it correctly"
             onChange={handleChange}
           />
-          <button className="m-3 btn btn-outline-info">Search</button>
+          <button>Search</button>
         </form>
         <button
           onClick={(e) => {
             setCountryData(blankCountry);
           }}
-          className="m-3 btn btn-outline-info"
         >
           Clear
         </button>
@@ -97,7 +116,7 @@ function LearnPage() {
         ""
       ) : (
         <Fragment>
-        <CountryCard data={countryData}/>
+          <CountryCard data={countryData} />
         </Fragment>
       )}
     </div>

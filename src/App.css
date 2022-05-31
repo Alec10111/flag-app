@@ -1,3 +1,5 @@
+
+
 .pressed{
     background-color:#0dcaf081;
     color: black;
@@ -21,4 +23,19 @@
     font-size: 1rem;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button{
+  background-color: #edf2fb;
+  border-radius: 10%;
+  border: none;
+  box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
+}
+button:active{
+  background-color: #e2eafc;
+  box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
+}
+
+button + button {
+  margin-left: 10px;
 }
