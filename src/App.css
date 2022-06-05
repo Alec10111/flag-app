@@ -4,38 +4,34 @@
     background-color:#0dcaf081;
     color: black;
 }
-  .buto {
-    display: inline-block;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #0dcaf0;
 
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid #0dcaf0;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
 
 button{
+  display: block;
   background-color: #edf2fb;
-  border-radius: 10%;
+  border-radius: 5%;
   border: none;
   box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
+  min-width: 200px;
+  max-width: 300px;
+  margin-top: 20px;
 }
 button:active{
   background-color: #e2eafc;
   box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
 }
 
-button + button {
-  margin-left: 10px;
+
+a{
+  background-color: #edf2fb;
+  border-radius: 10%;
+  border: none;
+  box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
+  min-width: 50px;
 }
+a:active{
+  background-color: #e2eafc;
+  box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
+}
+
+/* #edf2fb */

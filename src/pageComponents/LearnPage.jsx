@@ -31,12 +31,12 @@ function CountryCard({ data }) {
           alt="South Africa"
         />
       </div>
-      <hr className="ruler" />
+      <hr />
       <div className="cardContent">
         <p>{data["description"]}</p>
       </div>
 
-      <hr className="ruler" />
+      <hr />
       <div className="cardDetails">
         <ul>
           <li>
@@ -92,11 +92,11 @@ function LearnPage() {
   }
 
   return (
-    <div className="col-9 w-fit">
+    <div>
       <h2>Learn</h2>
       <hr />
-      <div className="container content-center items-center flex">
-        <form className="align-middle flex" onSubmit={handleClick}>
+      <div>
+        <form onSubmit={handleClick}>
           <input
             className="whitespace-pre-line h-4"
             placeholder="Just spell it correctly"
