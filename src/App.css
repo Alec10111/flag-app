@@ -5,6 +5,9 @@
     color: black;
 }
 
+hr{
+  margin: 10px 10px;
+}
 
 button{
   display: block;
@@ -12,15 +15,33 @@ button{
   border-radius: 5%;
   border: none;
   box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
-  min-width: 200px;
+  min-width: 250px;
   max-width: 300px;
   margin-top: 20px;
+  text-align: center;
 }
 button:active{
   background-color: #e2eafc;
   box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
 }
 
+.btn-neu{
+  display: block;
+  background-color: #edf2fb;
+  border-radius: 5%;
+  border: none;
+  box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 20px 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.btn-neu:active{
+  background-color: #e2eafc;
+  box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
+}
 
 a{
   background-color: #edf2fb;

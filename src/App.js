@@ -39,14 +39,16 @@ function App() {
       }}
     >
       <Router>
-          <h1>Flag Guesser</h1>
+          <h1 style={{ display: "flex", justifyContent: "center" }}>Flag Guesser</h1>
           <hr/>
           <NavBar/>
           <hr/>
 
           <Switch>
             <Route exact path="/">
-              <div>
+              <div >
+
+                <div style={{ display: "flex", justifyContent: "center" }}>
                 <button
                   onClick={handleFMode}
                   name="GF"
@@ -74,7 +76,9 @@ function App() {
                 >
                   Guess Country
                 </button>
+                </div>
                 <hr />
+                <div style={{ display: "grid", justifyContent: "center" }}>
                 <button
                   onClick={handleMode}
                   name="WW"
@@ -166,11 +170,13 @@ function App() {
                 >
                   South America
                 </button>
+                </div>
                 <hr/>
-
-                <Link to={"/play/" + fmode + "/" + mode} type="button">
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                <Link className="bnt-neu" to={"/play/" + fmode + "/" + mode} type="button">
                   Play
                 </Link>
+                </div>
               </div>
             </Route>
             <Route path={"/play/GC/" + mode}>
