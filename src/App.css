@@ -1,13 +1,28 @@
 
-
-.pressed{
-    background-color:#0dcaf081;
-    color: black;
-}
-
 hr{
-  margin: 10px 10px;
+  margin: 6px 6px;
 }
+
+.countrySelection{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  /* grid-gap: 10px; */
+  /* grid-auto-rows: minmax(100px, auto); */
+}
+
+.flag4Selection{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px; 
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 button{
   display: block;
@@ -15,9 +30,10 @@ button{
   border-radius: 5%;
   border: none;
   box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
-  min-width: 250px;
+  min-width: 120px;
   max-width: 300px;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   text-align: center;
 }
 button:active{
@@ -31,12 +47,16 @@ button:active{
   border-radius: 5%;
   border: none;
   box-shadow: -5px -5px 10px #d7e3fc, 5px 5px 10px #c1d3fe;
-  min-width: 200px;
+  min-width: 100px;
   max-width: 300px;
-  margin: 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
   text-align: center;
   padding: 10px;
 }
+
+
 
 .btn-neu:active{
   background-color: #e2eafc;

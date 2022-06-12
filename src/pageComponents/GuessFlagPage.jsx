@@ -87,18 +87,20 @@ function GuessFlagPage(props) {
   }
 
   return (
-    <div className="container">
+    <div style={{ display: "grid", justifyContent: "center" }}>
       <div className="col">
         <div className="row">
-          <h3>
+          <h3 style={{ textAlign: "center" }}>
             {continentCodes[props.gameMode]}: Round {streak}
           </h3>
           <hr />
         </div>
         <div className="row">
-          <h4>{countryCodes[currentFlag]}</h4>
+          <h4 style={{ textAlign: "center", marginBottom: "10px" }}>
+            {countryCodes[currentFlag]}
+          </h4>
         </div>
-        <div className="row">
+        <div className="flag4Selection">
           <Oneflag clicked={handleClick} code={sample[0]} />
           <Oneflag clicked={handleClick} code={sample[1]} />
           <Oneflag clicked={handleClick} code={sample[2]} />

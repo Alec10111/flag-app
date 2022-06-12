@@ -92,26 +92,23 @@ function LearnPage() {
   }
 
   return (
-    <div>
-      <h2>Learn</h2>
+    <div style={{ display: "grid", justifyContent: "center" }}>
+      <h2 style={{ textAlign: "center" }}>Learn</h2>
       <hr />
-      <div>
-        <form onSubmit={handleClick}>
-          <input
-            className="whitespace-pre-line h-4"
-            placeholder="Just spell it correctly"
-            onChange={handleChange}
-          />
-          <button>Search</button>
-        </form>
-        <button
-          onClick={(e) => {
-            setCountryData(blankCountry);
-          }}
-        >
-          Clear
-        </button>
-      </div>
+      <form
+        onSubmit={handleClick}
+        // style={{ justifyContent: "center", textAlign: "center" }}
+      >
+        <input placeholder="Just spell it correctly" onChange={handleChange} />
+        <button>Search</button>
+      </form>
+      <button
+        onClick={(e) => {
+          setCountryData(blankCountry);
+        }}
+      >
+        Clear
+      </button>
       {isLoading || countryData === blankCountry ? (
         ""
       ) : (

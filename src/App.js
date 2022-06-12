@@ -39,16 +39,15 @@ function App() {
       }}
     >
       <Router>
-          <h1 style={{ display: "flex", justifyContent: "center" }}>Flag Guesser</h1>
+          <h1 style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>Flag Guesser</h1>
           <hr/>
           <NavBar/>
           <hr/>
 
           <Switch>
             <Route exact path="/">
-              <div >
-
-                <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{ display: "grid", justifyContent: "center" }}>
+                <div className="modeSelection" style={{ display: "flex", justifyContent: "center" }}>
                 <button
                   onClick={handleFMode}
                   name="GF"
@@ -78,20 +77,7 @@ function App() {
                 </button>
                 </div>
                 <hr />
-                <div style={{ display: "grid", justifyContent: "center" }}>
-                <button
-                  onClick={handleMode}
-                  name="WW"
-                  type="button"
-                  value={1}
-                  // className={
-                  //   1 == btn2Ctrl
-                  //     ? "btn btn-outline-info pressed"
-                  //     : "btn btn-outline-info"
-                  // }
-                >
-                  Worldwide
-                </button>
+                <div className="countrySelection" style={{ display: "grid"}}> 
                 <button
                   onClick={handleMode}
                   name="EU"
@@ -170,14 +156,28 @@ function App() {
                 >
                   South America
                 </button>
+                <button
+                  onClick={handleMode}
+                  name="WW"
+                  type="button"
+                  value={1}
+                  // className={
+                  //   1 == btn2Ctrl
+                  //     ? "btn btn-outline-info pressed"
+                  //     : "btn btn-outline-info"
+                  // }
+                >
+                  Worldwide
+                </button>
                 </div>
                 <hr/>
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                <Link className="bnt-neu" to={"/play/" + fmode + "/" + mode} type="button">
+                </div>
+                <div className="playButtonSection" style={{ display: "flex", justifyContent: "center" }}>
+                <Link className="btn-neu" to={"/play/" + fmode + "/" + mode} type="button">
                   Play
                 </Link>
                 </div>
-              </div>
+             
             </Route>
             <Route path={"/play/GC/" + mode}>
               <GuessCountryPage gameMode={mode} round={1} />
