@@ -77,7 +77,9 @@ function LearnPage() {
       console.log(currentSearchBar.toLowerCase());
       let [descrp, res] = await Promise.all([
         fetcher(
-          `http://localhost:3001/getCountryInfo/${capitalize(currentSearchBar)}`
+          `https://server-flag.herokuapp.com/getCountryInfo/${capitalize(
+            currentSearchBar
+          )}`
         ),
         fetcher(
           `https://restcountries.com/v3.1/name/${currentSearchBar.toLowerCase()}`
