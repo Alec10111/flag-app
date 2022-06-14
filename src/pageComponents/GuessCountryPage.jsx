@@ -90,15 +90,30 @@ function GuessCountryPage(props) {
     <div className="container">
       <div className="col">
         <div className="row">
-          <h3>
+          <h3 style={{ marginTop: "10px" }}>
             {continentCodes[props.gameMode]}: Round {streak}
           </h3>
         </div>
-        <div className="row">
+        <hr />
+        <div
+          className="row"
+          style={{
+            display: "grid",
+            justifyContent: "center",
+            marginTop: "10px",
+          }}
+        >
           <Oneflag code={currentFlag} />
           {/* {countryCodes[currentFlag]} */}
         </div>
-        <div className="col space-x-0">
+        <hr />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            marginTop: "10px",
+          }}
+        >
           <FlagButton
             handled={handleClick}
             name={sample[0]}
