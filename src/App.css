@@ -3,6 +3,10 @@ hr{
   margin: 6px 6px;
 }
 
+.pressed{
+  background-color: #edf2fb;
+}
+
 .countrySelection{
   display: grid;
   grid-template-columns: repeat(2, 1fr);

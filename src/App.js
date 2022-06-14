@@ -26,6 +26,7 @@ function App() {
   function handleFMode(event) {
     setBtnCtrl(event.target.value);
     setFmode(event.target.name);
+    console.log(btnCtrl)
     //setPressed(prev => !prev);
   }
 
@@ -47,18 +48,17 @@ function App() {
           <Switch>
             <Route exact path="/">
               <div style={{ display: "grid", justifyContent: "center" }}>
-                <div className="modeSelection" style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ display: "flex", justifyContent: "center" }}>
                 <button
                   onClick={handleFMode}
                   name="GF"
                   // type="button"
                   value={1}
-                  className="anchor"
-                  // className={
-                  //   1 === btnCtrl
-                  //     ? "btn btn-outline-info pressed"
-                  //     : "btn btn-outline-info"
-                  // }
+                  className={
+                    1 === btnCtrl
+                      ? "pressed"
+                      : ""
+                  }
                 >
                   Guess Flag
                 </button>
@@ -67,11 +67,11 @@ function App() {
                   name="GC"
                   value={2}
                   type="button"
-                  // className={
-                  //   2 == btnCtrl
-                  //     ? "btn btn-outline-info pressed"
-                  //     : "btn btn-outline-info"
-                  // }
+                  className={
+                    2 == btnCtrl
+                      ? "pressed"
+                      : ""
+                  }
                 >
                   Guess Country
                 </button>
@@ -85,8 +85,8 @@ function App() {
                   value={2}
                   // className={
                   //   2 == btn2Ctrl
-                  //     ? "btn btn-outline-info pressed"
-                  //     : "btn btn-outline-info"
+                  //     ? "pressed"
+                  //     : ""
                   // }
                 >
                   Europe

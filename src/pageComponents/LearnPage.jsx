@@ -1,9 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
+import CountryCard from "../components/CountryCard";
+import CenterSpinner from "../components/CenterSpinner";
 
 const blankCountry = {
   name: {
     common: "",
+  },
+  flags: {
+    svg: "",
   },
   capital: [],
   languages: {},
@@ -18,48 +23,6 @@ const fetcher = async (path) => {
   let response = await fetch(path);
   return await response.json();
 };
-
-function CountryCard({ data }) {
-  return (
-    <div className="customCard">
-      <div className="cardTitle">
-        <h1>{data["name"]["common"]}</h1>
-        <img
-          src={data["flags"]["svg"]}
-          width="100"
-          height="50"
-          alt="South Africa"
-        />
-      </div>
-      <hr />
-      <div className="cardContent">
-        <p>{data["description"]}</p>
-      </div>
-
-      <hr />
-      <div className="cardDetails">
-        <ul>
-          <li>
-            <strong>Capital: </strong>
-            {data["capital"][0]}
-          </li>
-          <li>
-            <strong>Currency: </strong>
-            {Object.keys(data["currencies"])}
-          </li>
-          <li>
-            <strong>Population: </strong>
-            {data["population"]}
-          </li>
-          <li>
-            <strong>Languages: </strong>
-            {Object.values(data["languages"])}
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-}
 
 function LearnPage() {
   const [currentSearchBar, setCurrentSearchBar] = useState("");
@@ -94,29 +57,43 @@ function LearnPage() {
   }
 
   return (
-    <div style={{ display: "grid", justifyContent: "center" }}>
+    <div
+      style={{
+        display: "grid",
+        justifyContent: "center",
+      }}
+    >
       <h2 style={{ textAlign: "center" }}>Learn</h2>
       <hr />
-      <form
-        onSubmit={handleClick}
-        // style={{ justifyContent: "center", textAlign: "center" }}
+      <div
+        style={{ display: "grid", justifyContent: "center", marginTop: "10px" }}
       >
-        <input placeholder="Just spell it correctly" onChange={handleChange} />
-        <button>Search</button>
-      </form>
-      <button
-        onClick={(e) => {
-          setCountryData(blankCountry);
-        }}
+        <input
+          placeholder="Just spell it correctly"
+          onChange={handleChange}
+          value={currentSearchBar}
+        />
+      </div>
+
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
       >
-        Clear
-      </button>
-      {isLoading || countryData === blankCountry ? (
-        ""
+        <button onClick={handleClick}>Search</button>
+        <button
+          onClick={(e) => {
+            setCountryData(blankCountry);
+            setCurrentSearchBar("");
+          }}
+        >
+          Clear
+        </button>
+      </div>
+      {isLoading ? (
+        <CenterSpinner />
+      ) : countryData == blankCountry ? (
+        <Fragment />
       ) : (
-        <Fragment>
-          <CountryCard data={countryData} />
-        </Fragment>
+        <CountryCard data={countryData} />
       )}
     </div>
   );

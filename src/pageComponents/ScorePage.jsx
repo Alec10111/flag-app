@@ -6,13 +6,16 @@ function ScorePage(props) {
   return (
     <Router>
       <div className="col">
-        <div className="row-md-3">
-          <button>
-            <Link to="/scores/GF">Guess Flag</Link>
-          </button>
-          <button>
-            <Link to="/scores/GC">Guess Country</Link>
-          </button>
+        <div
+          className="row-md-3"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <Link className="btn-neu" to="/scores/GF">
+            Guess Flag
+          </Link>
+          <Link className="btn-neu" to="/scores/GC">
+            Guess Country
+          </Link>
           <hr />
         </div>
         <Switch>
