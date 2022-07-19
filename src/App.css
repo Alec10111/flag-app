@@ -40,7 +40,7 @@ button{
   margin-bottom: 15px;
   text-align: center;
 }
-button:active{
+button:active, .active{
   background-color: #e2eafc;
   box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
 }
@@ -62,9 +62,17 @@ button:active{
 
 
 
-.btn-neu:active{
+.btn-neu:active, .active{
   background-color: #e2eafc;
   box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
+}
+
+.btn-neu:checked{
+  background-color: red;
+  box-shadow: 4px 4px 13px #d7e3fc, -4px -4px 13px #c1d3fe;
+}
+label:checked{
+  background-color: red;
 }
 
 a{

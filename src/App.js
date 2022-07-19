@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
 import GuessFlagPage from "./pageComponents/GuessFlagPage";
 import ScorePage from "./pageComponents/ScorePage";
@@ -10,6 +10,9 @@ import NavBar from "./components/NavBar";
 // var modeContext = React.createContext(null);
 
 function App() {
+  useEffect(()=>{
+    console.log("reload")
+  })
   const [mode, setMode] = useState("WW");
   const [fmode, setFmode] = useState("GC");
 
@@ -48,35 +51,51 @@ function App() {
           <Switch>
             <Route exact path="/">
               <div style={{ display: "grid", justifyContent: "center" }}>
-                <div class="btn-group-toggle" data-toggle="buttons" style={{ display: "flex", justifyContent: "center" }}>
-                  <button
+              <div class="btn-group" style={{ display: "flex", justifyContent: "center" }} role="group" aria-label="Basic radio toggle button group">
+                <input value="GF" onClick={handleFMode} type="radio" className="btn-check" name="selectMode" id="guessFlag" autocomplete="off"/>
+                <label  className="btn-neu btn-outline-primary remove-active" for="guessFlag">Guess Flag</label>
+
+                <input value="GC" onClick={handleFMode} type="radio" className="btn-check" name="selectMode" id="selectMode" autocomplete="off"/>
+                <label  className="btn-neu btn-outline-primary" for="selectMode">Guess Country</label>
+              </div>
+            
+                {/* <div class="btn-group" role="group" style={{ display: "flex", justifyContent: "center" }}>
+                <label value="GF" onClick={handleFMode} className="btn btn-outline-primary" for="guessFlag">
+                Guess Flag</label>
+                  <input
+                    className="btn-check"
+                    id="guessFlag"
                     onClick={handleFMode}
-                    name={1}
+                    name="selectMode"
                     type="radio"
                     value="GF"
+                    // autocomplete="off"
+
                     // className={
                     //   1 === btnCtrl
                     //     ? "pressed"
                     //     : ""
                     // }
-                  >
-                    Guess Flag
-                  </button>
-                  <button
+                  />
+                 
+                 <label className="btn btn-outline-primary" for="guessCountry">
+                 Guess Country
+                    </label>
+                  <input
+                    id="guessCountry"
                     onClick={handleFMode}
                     value="GC"
-                    name={2}
+                    name="selectMode"
                     type="radio"
-                    className="remove-active"
+                    className="btn-check"
+                    // autocomplete="off"
                     // className={
                     //   2 == btnCtrl
                     //     ? "pressed"
                     //     : ""
                     // }
-                  >
-                    Guess Country
-                  </button>
-                </div>
+                  />
+                </div> */}
                 <hr />
                 <div className="countrySelection" style={{ display: "grid"}}> 
                 <button
